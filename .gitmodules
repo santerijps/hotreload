@@ -1,0 +1,3 @@
+[submodule "src/sjpslib"]
+	path = src/sjpslib
+	url = https://github.com/santerijps/sjpslib.h

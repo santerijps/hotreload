@@ -4,16 +4,10 @@ import sys
 import time
 
 
-def read_file(file_path: str) -> str:
-  with open(file_path) as file:
-    return file.read()
-
-
 def main():
 
   filters = [
     lambda x: not x.startswith('.'),
-    lambda x: not x.endswith('.exe'),
   ]
 
   action = sys.argv[1] if len(sys.argv[1:]) else None

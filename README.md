@@ -1,8 +1,9 @@
-# Hot Reload
+# hotreload
 
-Execute actions in the shell whenever any (non-executable) file in the directory is modified, new ones are created, or old ones are deleted.
+Execute actions in the shell whenever any file in the directory is modified, new ones are created, or old ones are deleted.
 
 ```sh
-cd my-project-folder
-python hotreload.py 'echo Hello world'
+# Building and usage
+make prod
+build/hotreload 'echo Hello world'
 ```
