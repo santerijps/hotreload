@@ -18,13 +18,13 @@ i32 main(i32 argc, string argv[]) begin
   loop begin
 
     did_update = false;
-
-    FileInfoList_init(ref fil, 512);
+    FileInfoList_init(ref fil, 1024);
     list_files(cwd, ref fil);
 
     countup (index, 0, fil.len) begin
 
       fi = FileInfoList_get(ref fil, index);
+      continueif(endswith(fi.path, ".exe"));
 
       when cache[index] != fi.written
       then begin
@@ -37,6 +37,7 @@ i32 main(i32 argc, string argv[]) begin
     when did_update
     then begin
       proc_kill(ref p);
+      proc_join(ref p);
       p = proc_spawn(command);
     end
 
